@@ -217,7 +217,7 @@
     }
 
     .cabecera__fondo--nitido {
-        background-image: url(../../resources/img/img.png);
+        background-image: url(../../public/img/);
         height: 275px;
         /*cambio original 375*/
         left: 0;
