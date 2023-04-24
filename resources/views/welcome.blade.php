@@ -18,7 +18,7 @@
 
 <body>
     <!-- VENTANA DE INICIO GENERAL -->
-<header class="cabecera">
+    <header class="cabecera">
         <div class="cabecera__fondo--nitido"></div>
         <div class="cabecera__capa"></div>
         <div class="cabecera__contenido">
@@ -43,9 +43,20 @@
                         </svg>
                     </span>
                     <ul>
+
                         <li class="">
                             <a href="{{ route('login') }}" class="p-4"> Login</a>
                         </li>
+                        <!-- Modal trigger button -->
+                        <a href="{{ route('login') }}" class="btn btn-primary btn-lg" data-bs-toggle="modal"
+                            data-bs-target="#modalId">
+                            login
+                        </a>
+
+                        <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#addprofile"
+                            style="color: white">
+                            Administrador
+                        </button>
                     </ul>
                 </li>
             </ul>
@@ -53,7 +64,7 @@
     </header>
 
     <section class="section1-center">
-    <br><br><br><br>
+        <br><br><br><br>
         <div class="cont-video-bg" style="position:relative; width: 100%; top: 0; left: 0">
             <video autoplay muted loop id="myVideo" style="min-width: 100%">
                 <source src="../resources/img/libros_comprimido(1080)(2).mp4" type="video/mp4">
@@ -61,52 +72,10 @@
         </div>
     </section>
 
-
-    <!-- MODAL PARA EL LOGEO DEL ESTUDIANTE-->
-    <div class="modal fade" id="estudent" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
-        style="color: black;">
-        <div class="modal-dialog">
-            <div class="modal-content img_log">
-                <div class="modal-header">
-
-                    <h5 class="modal-title" id="exampleModalLabel">ESTUDIANTE</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <img src="../resources/img/sistemas.png">
-                <div class="modal-body">
-                    <form method="post" action="../Controller/logestudent.php" class="adm_login" autocomplete="on">
-
-                        <div class=" txt_field">
-                            <input name="email" type="email" required class="form-control" id="exampleInputEmail1" pattern=".+@unh.edu.pe" title="Ingrese un correo institucional de la UNH">
-                            <span></span>
-                            <label for="exampleInputEmail1" class="form-label">Correo</label>
-                        </div>
-
-                        <div class="mb-3 txt_field">
-                            <input name="password" type="password" required class="form-control"
-                                id="exampleInputPassword1">
-                            <span></span>
-                            <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-                        </div>
-
-                        <div class="modal-footer contraseña">
-                            <input type="submit" value="Login">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                        </div>
-                    </form>
-                </div>
-
-                <div class="modal-footer">
-
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- MODAL PARA EL LOGEO DEL ADMINISTRADOR -->
     <div class="modal fade" id="addprofile" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
         style="color: black;">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content img_log">
 
                 <div class="modal-header ">
@@ -114,441 +83,504 @@
                     <h5 class="modal-title" id="exampleModalLabel">ADMINISTRADOR </h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <img src="../resources/img/sistemas.png">
                 <div class="modal-body">
-                    <form method="POST" action="../Controller/log_admin.php" class="adm_login" autocomplete="on">
+                    @section('content')
+                        {{-- <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-md-8">
+                                    <div class="card">
+                                        <div class="card-header">{{ __('Login') }}</div> --}}
 
-                        <div class=" txt_field">
-                            <input name="email_" type="email" required class="form-control" id="exampleInputEmail1" pattern=".+@unh.edu.pe" title="Ingrese un correo institucional de la UNH" >
-                            <span></span>
-                            <label for="exampleInputEmail1" class="form-label">Correo</label>
+                                        <div class="card-body border">
+                                            <form method="POST" action="{{ route('login') }}">
+                                                @csrf
+
+                                                <div class="row mb-3">
+                                                    <label for="email"
+                                                        class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
+
+                                                    <div class="col-md-6">
+                                                        <input id="email" type="email"
+                                                            class="form-control @error('email') is-invalid @enderror"
+                                                            name="email" value="{{ old('email') }}" required
+                                                            autocomplete="email" autofocus>
+
+                                                        @error('email')
+                                                            <span class="invalid-feedback" role="alert">
+                                                                <strong>{{ $message }}</strong>
+                                                            </span>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+
+                                                <div class="row mb-3">
+                                                    <label for="password"
+                                                        class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
+
+                                                    <div class="col-md-6">
+                                                        <input id="password" type="password"
+                                                            class="form-control @error('password') is-invalid @enderror"
+                                                            name="password" required autocomplete="current-password">
+
+                                                        @error('password')
+                                                            <span class="invalid-feedback" role="alert">
+                                                                <strong>{{ $message }}</strong>
+                                                            </span>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+
+                                                <div class="row mb-3">
+                                                    <div class="col-md-6 offset-md-4">
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox"
+                                                                name="remember" id="remember"
+                                                                {{ old('remember') ? 'checked' : '' }}>
+
+                                                            <label class="form-check-label" for="remember">
+                                                                {{ __('Remember Me') }}
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row mb-0">
+                                                    <div class="col-md-8 offset-md-4">
+                                                        <button type="submit" class="btn btn-primary">
+                                                            {{ __('Login') }}
+                                                        </button>
+
+                                                        @if (Route::has('password.request'))
+                                                            <a class="btn btn-link"
+                                                                href="{{ route('password.request') }}">
+                                                                {{ __('Forgot Your Password?') }}
+                                                            </a>
+                                                        @endif
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    {{-- </div>
+                                </div>
+                            </div>
                         </div>
+                    </div> --}}
 
-                        <div class="mb-3 txt_field">
-                            <input name="password_" type="password" required class="form-control"
-                                id="exampleInputPassword1">
-                            <span></span>
-                            <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-                        </div>
+                    <div class="modal-footer">
 
-                        <div class="modal-footer contraseña">
-                            <input type="submit" value="Login">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                        </div>
-                    </form>
-                </div>
-
-                <div class="modal-footer">
-
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-</body>
-<!-- PIE DE PAGINA DE INICIO -->
-<footer class="pie_pagina">
-    <center>
-        <p>©Copyright 2050 EQUIPO 4. Todos los derechos reservados.</p>
-    </center>
-</footer>
-<script>
-document.querySelector(".dropdown").addEventListener("click",
-    function() {
-        document.querySelector("dropdown ul").classList.add("show")
-    });
-</script>
+    </body>
+    <!-- PIE DE PAGINA DE INICIO -->
+    <footer class="pie_pagina">
+        <center>
+            <p>©Copyright 2050 EQUIPO 4. Todos los derechos reservados.</p>
+        </center>
+    </footer>
+    <script>
+        document.querySelector(".dropdown").addEventListener("click",
+            function() {
+                document.querySelector("dropdown ul").classList.add("show")
+            });
+    </script>
 
-<style>
+    <style>
         /*###################################################################
-        #                            menu desplegable
-        ###################################################################*/
+            #                            menu desplegable
+            ###################################################################*/
 
         .dropdown {
-        position: relative;
-    }
+            position: relative;
+        }
 
-    .dropdown ul {
-        position: absolute;
-        max-height: 0px;
-        overflow: hidden;
-        transition: all 0.5s;
-        left: 0px;
-    }
+        .dropdown ul {
+            position: absolute;
+            max-height: 0px;
+            overflow: hidden;
+            transition: all 0.5s;
+            left: 0px;
+        }
 
-    .dropdown:hover ul,
-    dropdown:hover ul.show {
-        max-height: 400px;
-        color: #fff;
-        background-color: #836CEE;
-        border-color: #836CEE;
-    }
-    /*###################################################################
-        #                            tamaño del video
-        ###################################################################*/
+        .dropdown:hover ul,
+        dropdown:hover ul.show {
+            max-height: 400px;
+            color: #fff;
+            background-color: #836CEE;
+            border-color: #836CEE;
+        }
 
-    #myVideo {
-        width: 100%;
-        /*min-width: 100%;
-        min-height: 100%;
-        height: auto;
-        width: auto;
-        position: fixed;
-        right: 0;
-        min-width: 100%;
-        min-height: 100%;
-        background-size: cover;
-        height: auto;
-        width: auto;*/
-    }
-    /*#########################################################
-                                login
-    ######################################################### */
+        /*###################################################################
+            #                            tamaño del video
+            ###################################################################*/
 
-    .img_log img {
-        position: relative;
-        padding: 10px;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
+        #myVideo {
+            width: 100%;
+            /*min-width: 100%;
+            min-height: 100%;
+            height: auto;
+            width: auto;
+            position: fixed;
+            right: 0;
+            min-width: 100%;
+            min-height: 100%;
+            background-size: cover;
+            height: auto;
+            width: auto;*/
+        }
 
-    .center form {
-        padding: 0 40px;
-        box-sizing: border-box;
-    }
+        /*#########################################################
+                                    login
+        ######################################################### */
 
-    .center form {
-        padding: 0 40px;
-        box-sizing: border-box;
-    }
+        .img_log img {
+            position: relative;
+            padding: 10px;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 
-    form .txt_field {
-        position: relative;
-        border-bottom: 2px solid #adadad;
-        margin: 30px 0;
-    }
+        .center form {
+            padding: 0 40px;
+            box-sizing: border-box;
+        }
 
-    .txt_field input {
-        width: 100%;
-        padding: 0 5px;
-        height: 40px;
-        font-size: 16px;
-        border: none;
-        background: none;
-        outline: none;
-    }
+        .center form {
+            padding: 0 40px;
+            box-sizing: border-box;
+        }
 
-    .txt_field label {
-        position: absolute;
-        top: 50%;
-        left: 5px;
-        color: #adadad;
-        transform: translateY(-50%);
-        font-size: 16px;
-        pointer-events: none;
-        transition: .5s;
-    }
+        form .txt_field {
+            position: relative;
+            border-bottom: 2px solid #adadad;
+            margin: 30px 0;
+        }
 
-    .txt_field span::before {
-        content: '';
-        position: absolute;
-        top: 40px;
-        left: 0;
-        width: 0%;
-        height: 2px;
-        background: #2691d9;
-        transition: .5s;
-    }
+        .txt_field input {
+            width: 100%;
+            padding: 0 5px;
+            height: 40px;
+            font-size: 16px;
+            border: none;
+            background: none;
+            outline: none;
+        }
 
-    .txt_field input:focus~label,
-    .txt_field input:valid~label {
-        top: -5px;
-        color: #2691d9;
-    }
+        .txt_field label {
+            position: absolute;
+            top: 50%;
+            left: 5px;
+            color: #adadad;
+            transform: translateY(-50%);
+            font-size: 16px;
+            pointer-events: none;
+            transition: .5s;
+        }
 
-    .txt_field input:focus~span::before,
-    .txt_field input:valid~span::before {
-        width: 100%;
-    }
+        .txt_field span::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: #2691d9;
+            transition: .5s;
+        }
 
-    input[type="submit"] {
-        width: 100%;
-        height: 50px;
-        border: 1px solid;
-        background: #2691d9;
-        border-radius: 25px;
-        font-size: 18px;
-        color: #e9f4fb;
-        font-weight: 700;
-        cursor: pointer;
-        outline: none;
-    }
+        .txt_field input:focus~label,
+        .txt_field input:valid~label {
+            top: -5px;
+            color: #2691d9;
+        }
 
-    input[type="submit"]:hover {
-        border-color: #2691d9;
-        transition: .5s;
-    }
+        .txt_field input:focus~span::before,
+        .txt_field input:valid~span::before {
+            width: 100%;
+        }
 
-    button {
-        align-items: center;
-    }
+        input[type="submit"] {
+            width: 100%;
+            height: 50px;
+            border: 1px solid;
+            background: #2691d9;
+            border-radius: 25px;
+            font-size: 18px;
+            color: #e9f4fb;
+            font-weight: 700;
+            cursor: pointer;
+            outline: none;
+        }
 
-    .contraseña button[type="button"] {
-        cursor: pointer;
-        border: 30px;
-        background-color: transparent;
-    }
-    /*###################################################################
-        #                            cabecera
-        ###################################################################*/
+        input[type="submit"]:hover {
+            border-color: #2691d9;
+            transition: .5s;
+        }
 
-    html {
-        box-sizing: border-box;
-    }
+        button {
+            align-items: center;
+        }
 
-    *,
-    *:before,
-    *:after {
-        box-sizing: inherit;
-    }
+        .contraseña button[type="button"] {
+            cursor: pointer;
+            border: 30px;
+            background-color: transparent;
+        }
 
-    body {
-        /*background: #191919;*/
-        color: #fff;
-        /*font-smoothing: antialiased;*/
-        -webkit-font-smoothing: antialiased;
-        margin: 0;
-        position: relative;
-    }
+        /*###################################################################
+            #                            cabecera
+            ###################################################################*/
 
-    .item-content,
-    .item-content a,
-    .item-content a:hover,
-    .item-content a:visited {
-        color: #ccc;
-        text-decoration: none;
-    }
+        html {
+            box-sizing: border-box;
+        }
 
-    .item-content .fa {
-        display: inline-block;
-        margin-right: 5px;
-    }
+        *,
+        *:before,
+        *:after {
+            box-sizing: inherit;
+        }
 
-    .nav {
-        background-color: rgba(0, 0, 0, 0.5);
-        /*background-color: rgba(103, 25, 25, 0.5);*/
-        bottom: 0;
-        height: 50px;
-        left: 0;
-        position: absolute;
-        width: 100%;
-        max-width: 150%;
-        z-index: 20;
-    }
+        body {
+            /*background: #191919;*/
+            color: #fff;
+            /*font-smoothing: antialiased;*/
+            -webkit-font-smoothing: antialiased;
+            margin: 0;
+            position: relative;
+        }
 
-    .nav ul,
-    .nav li {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        /*text-transform: uppercase;*/
-    }
+        .item-content,
+        .item-content a,
+        .item-content a:hover,
+        .item-content a:visited {
+            color: #ccc;
+            text-decoration: none;
+        }
 
-    .nav,
-    .nav__pull,
-    .nav__social,
-    .nav__enlaces {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-    }
+        .item-content .fa {
+            display: inline-block;
+            margin-right: 5px;
+        }
 
-    .nav__columna {
-        font-size: 14px;
-        width: 50%;
-        /*width: 33%;*/
-        -ms-flex-preferred-size: 50%;
-        flex-basis: 50%;
-    }
+        .nav {
+            background-color: rgba(0, 0, 0, 0.5);
+            /*background-color: rgba(103, 25, 25, 0.5);*/
+            bottom: 0;
+            height: 50px;
+            left: 0;
+            position: absolute;
+            width: 100%;
+            max-width: 150%;
+            z-index: 20;
+        }
 
-    .nav__social,
-    .nav__enlaces {
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
-        justify-content: center;
-    }
+        .nav ul,
+        .nav li {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            /*text-transform: uppercase;*/
+        }
 
-    .nav__social li+li,
-    .nav__enlaces li+li {
-        margin-left: 25px;
-    }
+        .nav,
+        .nav__pull,
+        .nav__social,
+        .nav__enlaces {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+        }
 
-    .nav__social a,
-    .nav__social a:visited,
-    .nav__enlaces a,
-    .nav__enlaces a:visited {
-        color: #fff;
-        text-decoration: none;
-        font-family: arial, verdana;
-        font-size: 15px;
-    }
+        .nav__columna {
+            font-size: 14px;
+            width: 50%;
+            /*width: 33%;*/
+            -ms-flex-preferred-size: 50%;
+            flex-basis: 50%;
+        }
 
-    .nav__enlaces a:hover {
-        text-decoration: none;
-        font-weight: 900;
-        color: #ffffff;
-    }
+        .nav__social,
+        .nav__enlaces {
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+        }
 
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    .cabecera {
-        font-family: 'Montserrat', sans-serif;
-    }
+        .nav__social li+li,
+        .nav__enlaces li+li {
+            margin-left: 25px;
+        }
 
-    .cabecera {
-        display: inline-block;
-        height: 275px;
-        /*cambio original 375-*/
-        left: 0;
-        padding: 0 20px;
-        position: absolute;
-        top: 0;
-        width: 100%;
-        z-index: 5;
-    }
+        .nav__social a,
+        .nav__social a:visited,
+        .nav__enlaces a,
+        .nav__enlaces a:visited {
+            color: #fff;
+            text-decoration: none;
+            font-family: arial, verdana;
+            font-size: 15px;
+        }
 
-    .cabecera--encogida {
-        position: fixed;
-        top: -225px;
-        z-index: 12;
-    }
+        .nav__enlaces a:hover {
+            text-decoration: none;
+            font-weight: 900;
+            color: #ffffff;
+        }
 
-    .cabecera h1 {
-        font-size: 45px;
-        letter-spacing: 0.2em;
-        margin: 0px 0;
-        /*AQUI HICE CAMBIOS*/
-        text-transform: uppercase;
-        color: #ffffff;
-    }
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        .cabecera {
+            font-family: 'Montserrat', sans-serif;
+        }
 
-    .cabecera p {
-        /*AQUI HICE CAMBIOS*/
-        text-transform: uppercase;
-        color: #ffffff;
-    }
+        .cabecera {
+            display: inline-block;
+            height: 275px;
+            /*cambio original 375-*/
+            left: 0;
+            padding: 0 20px;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            z-index: 5;
+        }
 
-    .cabecera__contenido {
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-        flex-direction: column;
-        height: 55px;
-        /*aqui hice cambio 155*/
-        left: 0;
-        margin-top: 10px;
-        padding: 40px 20px;
-        position: fixed;
-        width: 100%;
-        z-index: 2;
-    }
+        .cabecera--encogida {
+            position: fixed;
+            top: -225px;
+            z-index: 12;
+        }
 
-    .cabecera,
-    .cabecera__fondo--nitido {
-        background-position: bottom center;
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
+        .cabecera h1 {
+            font-size: 45px;
+            letter-spacing: 0.2em;
+            margin: 0px 0;
+            /*AQUI HICE CAMBIOS*/
+            text-transform: uppercase;
+            color: #ffffff;
+        }
 
-    .cabecera__fondo--nitido {
-        background-image: url(../../resources/img/img.png);
-        height: 275px;
-        /*cambio original 375*/
-        left: 0;
-        opacity: 1;
-        position: absolute;
-        top: 0;
-        width: 100%;
-        max-width: 150%;
-        min-width: 50%;
-    }
+        .cabecera p {
+            /*AQUI HICE CAMBIOS*/
+            text-transform: uppercase;
+            color: #ffffff;
+        }
 
-    .cabecera__capa {
-        background-color: rgba(0, 0, 0, 0.5);
-        /*background-color: rgba(121, 4, 4, 0.5);*/
-        bottom: 0;
-        left: 0;
-        position: absolute;
-        right: 0;
-        top: 0;
-        width: 100%;
-        /* se cambia de 100% a:*/
-        max-width: 150%;
-        /* se cambia de 150% a:*/
-        min-width: 50%;
-        /* se cambia de 100% a:*/
-    }
+        .cabecera__contenido {
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            height: 55px;
+            /*aqui hice cambio 155*/
+            left: 0;
+            margin-top: 10px;
+            padding: 40px 20px;
+            position: fixed;
+            width: 100%;
+            z-index: 2;
+        }
 
-    .funcion13-logo {
-        height: 50px;
-        left: 20px;
-        margin: 10px auto 0;
-        position: fixed;
-        right: 20px;
-        text-align: center;
-        z-index: 15;
-    }
+        .cabecera,
+        .cabecera__fondo--nitido {
+            background-position: bottom center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
 
-    .logo {
-        height: 100px;
-        width: 100px;
-    }
+        .cabecera__fondo--nitido {
+            background-image: url(../../resources/img/img.png);
+            height: 275px;
+            /*cambio original 375*/
+            left: 0;
+            opacity: 1;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            max-width: 150%;
+            min-width: 50%;
+        }
 
-    .relleno {
-        height: 375px;
-        position: relative;
-        top: 0;
-        width: 100%;
-        z-index: -2;
-    }
+        .cabecera__capa {
+            background-color: rgba(0, 0, 0, 0.5);
+            /*background-color: rgba(121, 4, 4, 0.5);*/
+            bottom: 0;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 100%;
+            /* se cambia de 100% a:*/
+            max-width: 150%;
+            /* se cambia de 150% a:*/
+            min-width: 50%;
+            /* se cambia de 100% a:*/
+        }
 
-    .section1-center {
-        -webkit-background-size: cover;
-        background-size: cover;
-        background-position: center;
-        background-attachment: scroll;
-        background-repeat: no-repeat;
-        height: 50%;
-        position: relative;
-        /*overflow:hidden*/
-    }
+        .funcion13-logo {
+            height: 50px;
+            left: 20px;
+            margin: 10px auto 0;
+            position: fixed;
+            right: 20px;
+            text-align: center;
+            z-index: 15;
+        }
 
-    .pie_pagina {
-        background-color: rgba(0, 0, 0, 0.5);
-        background-color: rgba(0, 0, 0, 0.5);
-        bottom: 0;
-        height: 50px;
-        left: 0;
-        position: absolute;
-        width: 100%;
-        max-width: 150%;
-        z-index: 20;
-    }
-</style>
-</html>
+        .logo {
+            height: 100px;
+            width: 100px;
+        }
+
+        .relleno {
+            height: 375px;
+            position: relative;
+            top: 0;
+            width: 100%;
+            z-index: -2;
+        }
+
+        .section1-center {
+            -webkit-background-size: cover;
+            background-size: cover;
+            background-position: center;
+            background-attachment: scroll;
+            background-repeat: no-repeat;
+            height: 50%;
+            position: relative;
+            /*overflow:hidden*/
+        }
+
+        .pie_pagina {
+            background-color: rgba(0, 0, 0, 0.5);
+            background-color: rgba(0, 0, 0, 0.5);
+            bottom: 0;
+            height: 50px;
+            left: 0;
+            position: absolute;
+            width: 100%;
+            max-width: 150%;
+            z-index: 20;
+        }
+    </style>
+
+    </html>
