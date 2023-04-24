@@ -13,8 +13,6 @@
     <link rel="stylesheet" href="{{ asset('storage/css/style.css') }}">
 
 </head>
-
-
 <body>
     <!-- VENTANA DE INICIO GENERAL -->
     <header class="cabecera">
@@ -44,7 +42,6 @@
                         </svg>
                     </span>
                     <ul>
-
                         <li class="">
                             <a href="{{ route('login') }}" class="p-4"> Login</a>
                         </li>
@@ -59,9 +56,6 @@
     </header>
 
     <main>
-
-        <!-- Modal Body -->
-        <!-- if you want to close by clicking outside the modal, delete the last endpoint:data-bs-backdrop and data-bs-keyboard -->
         <div class="modal fade " id="modalId" tabindex="3" data-bs-backdrop="static" data-bs-keyboard="false"
             role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
             <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered " role="document">
@@ -72,11 +66,6 @@
                     </div>
                     <div class="modal-body">
                         <div class="container">
-                            {{-- <div class="row justify-content-center">
-                        <div class="col-md-8">
-                            <div class="card">
-                                <div class="card-header">{{ __('Login') }}</div> --}}
-
                             <div class="card-body">
                                 <form method="POST" action="{{ route('login') }}">
                                     @csrf
@@ -127,25 +116,14 @@
                                             </div>
                                         </div>
                                     </div>
-
                                     <div class="row mb-0">
                                         <div class="col-md-8 offset-md-4 ">
                                             <button type="submit" class="btn btn-primary">
                                                 {{ __('Login') }}
                                             </button>
-
-                                            {{-- @if (Route::has('password.request'))
-                                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                                    {{ __('Forgot Your Password?') }}
-                                                </a>
-                                            @endif --}}
                                         </div>
                                     </div>
                                 </form>
-                                {{-- </div>
-                            </div>
-                        </div>
-                    </div> --}}
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -155,9 +133,6 @@
                     </div>
                 </div>
             </div>
-
-
-            
     </main>
     <section class="section1-center">
         <br><br><br><br>
@@ -168,9 +143,7 @@
         </div>
     </section>
     <footer class="pie_pagina">
-        <center>
-            <p>©Copyright 2050 EQUIPO 4. Todos los derechos reservados.</p>
-        </center>
+        <p class="text-center">©Copyright 2050 EQUIPO 4. Todos los derechos reservados.</p>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
