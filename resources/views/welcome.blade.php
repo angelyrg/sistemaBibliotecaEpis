@@ -61,7 +61,7 @@
         <br><br><br><br>
         <div class="cont-video-bg" style="position:relative; width: 100%; top: 0; left: 0">
             <video autoplay muted loop id="myVideo" style="min-width: 100%">
-                <source src="../resources/img/libros_comprimido(1080)(2).mp4" type="video/mp4">
+                <source src="{{asset('storage/img/libros_comprimido(1080)(2).mp4') }}" type="video/mp4">
             </video>
         </div>
     </section>
