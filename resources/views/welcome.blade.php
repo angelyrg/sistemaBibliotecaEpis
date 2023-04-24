@@ -4,10 +4,6 @@
 <head>
     <meta charset="utf-8">
     <title>Biblioteca EPIS</title>
-    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.css" />
-    <link rel="stylesheet" href="../../assets/Styles/styles_index.css" />
-    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css" />
-    <link type="image/x-icon" href="../resources/img/epis1.png" rel="shortcut icon">
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -68,7 +64,6 @@
             <video autoplay muted loop id="myVideo" style="min-width: 100%">
                 <source src="../resources/img/libros_comprimido(1080)(2).mp4" type="video/mp4">
             </video>
-
         </div>
     </section>
 
