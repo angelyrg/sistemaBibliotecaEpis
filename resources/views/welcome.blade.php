@@ -5,8 +5,6 @@
     <meta charset="utf-8">
     <title>Biblioteca EPIS</title>
     <!-- CSS only -->
-    <link rel="stylesheet" href="../../resources/css/style.css" />
-    <link type="image/x-icon" href="../../public/img/epis.png" rel="shortcut icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <!-- JavaScript Bundle with Popper -->
@@ -22,7 +20,9 @@
         <div class="cabecera__fondo--nitido"></div>
         <div class="cabecera__capa"></div>
         <div class="cabecera__contenido">
-            <img src="../resources/img/epis1.png" alt="Funcion 13 Logo" class="logo">
+            <img src="" alt="Funcion 13 Logo" class="logo">
+            
+            <img height="80px" src="{{ asset('storage' . '/' . 'img/epis.png') }}" alt="">
             <h1>SISTEMA DE BIBLIOTECA</h1>
             <p>Escuela Profesional de Ingenieria de Sistemas</p>
         </div>
@@ -47,12 +47,6 @@
                         <li class="">
                             <a href="{{ route('login') }}" class="p-4"> Login</a>
                         </li>
-                        <!-- Modal trigger button -->
-                        <a href="{{ route('login') }}" class="btn btn-primary btn-lg" data-bs-toggle="modal"
-                            data-bs-target="#modalId">
-                            login
-                        </a>
-
                         <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#addprofile"
                             style="color: white">
                             Administrador
