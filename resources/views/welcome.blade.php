@@ -42,15 +42,7 @@
                     </span>
                     <ul>
                         <li class="">
-                            <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#estudent"
-                                style="color: white" target="_blank">
-                                Estudiante
-                            </button>
-
-                            <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#addprofile"
-                                style="color: white">
-                                Administrador
-                            </button>
+                            <a href="{{ route('login') }}" class="p-4"> Login</a>
                         </li>
                     </ul>
                 </li>
