@@ -5,13 +5,15 @@
     <meta charset="utf-8">
     <title>Biblioteca EPIS</title>
     <!-- CSS only -->
+    <link rel="stylesheet" href="../../resources/css/style.css" />
+    <link type="image/x-icon" href="../../public/img/epis.png" rel="shortcut icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>
-    
+
 </head>
 
 <body>
@@ -57,7 +59,7 @@
             </ul>
         </nav>
     </header>
-    
+
     <section class="section1-center">
     <br><br><br><br>
         <div class="cont-video-bg" style="position:relative; width: 100%; top: 0; left: 0">
@@ -169,11 +171,11 @@ document.querySelector(".dropdown").addEventListener("click",
         /*###################################################################
         #                            menu desplegable
         ###################################################################*/
-    
+
         .dropdown {
         position: relative;
     }
-    
+
     .dropdown ul {
         position: absolute;
         max-height: 0px;
@@ -181,7 +183,7 @@ document.querySelector(".dropdown").addEventListener("click",
         transition: all 0.5s;
         left: 0px;
     }
-    
+
     .dropdown:hover ul,
     dropdown:hover ul.show {
         max-height: 400px;
@@ -192,7 +194,7 @@ document.querySelector(".dropdown").addEventListener("click",
     /*###################################################################
         #                            tamaño del video
         ###################################################################*/
-    
+
     #myVideo {
         width: 100%;
         /*min-width: 100%;
@@ -207,10 +209,10 @@ document.querySelector(".dropdown").addEventListener("click",
         height: auto;
         width: auto;*/
     }
-    /*######################################################### 
+    /*#########################################################
                                 login
     ######################################################### */
-    
+
     .img_log img {
         position: relative;
         padding: 10px;
@@ -220,23 +222,23 @@ document.querySelector(".dropdown").addEventListener("click",
         height: 100%;
         object-fit: cover;
     }
-    
+
     .center form {
         padding: 0 40px;
         box-sizing: border-box;
     }
-    
+
     .center form {
         padding: 0 40px;
         box-sizing: border-box;
     }
-    
+
     form .txt_field {
         position: relative;
         border-bottom: 2px solid #adadad;
         margin: 30px 0;
     }
-    
+
     .txt_field input {
         width: 100%;
         padding: 0 5px;
@@ -246,7 +248,7 @@ document.querySelector(".dropdown").addEventListener("click",
         background: none;
         outline: none;
     }
-    
+
     .txt_field label {
         position: absolute;
         top: 50%;
@@ -257,7 +259,7 @@ document.querySelector(".dropdown").addEventListener("click",
         pointer-events: none;
         transition: .5s;
     }
-    
+
     .txt_field span::before {
         content: '';
         position: absolute;
@@ -268,18 +270,18 @@ document.querySelector(".dropdown").addEventListener("click",
         background: #2691d9;
         transition: .5s;
     }
-    
+
     .txt_field input:focus~label,
     .txt_field input:valid~label {
         top: -5px;
         color: #2691d9;
     }
-    
+
     .txt_field input:focus~span::before,
     .txt_field input:valid~span::before {
         width: 100%;
     }
-    
+
     input[type="submit"] {
         width: 100%;
         height: 50px;
@@ -292,16 +294,16 @@ document.querySelector(".dropdown").addEventListener("click",
         cursor: pointer;
         outline: none;
     }
-    
+
     input[type="submit"]:hover {
         border-color: #2691d9;
         transition: .5s;
     }
-    
+
     button {
         align-items: center;
     }
-    
+
     .contraseña button[type="button"] {
         cursor: pointer;
         border: 30px;
@@ -310,17 +312,17 @@ document.querySelector(".dropdown").addEventListener("click",
     /*###################################################################
         #                            cabecera
         ###################################################################*/
-    
+
     html {
         box-sizing: border-box;
     }
-    
+
     *,
     *:before,
     *:after {
         box-sizing: inherit;
     }
-    
+
     body {
         /*background: #191919;*/
         color: #fff;
@@ -329,7 +331,7 @@ document.querySelector(".dropdown").addEventListener("click",
         margin: 0;
         position: relative;
     }
-    
+
     .item-content,
     .item-content a,
     .item-content a:hover,
@@ -337,12 +339,12 @@ document.querySelector(".dropdown").addEventListener("click",
         color: #ccc;
         text-decoration: none;
     }
-    
+
     .item-content .fa {
         display: inline-block;
         margin-right: 5px;
     }
-    
+
     .nav {
         background-color: rgba(0, 0, 0, 0.5);
         /*background-color: rgba(103, 25, 25, 0.5);*/
@@ -354,7 +356,7 @@ document.querySelector(".dropdown").addEventListener("click",
         max-width: 150%;
         z-index: 20;
     }
-    
+
     .nav ul,
     .nav li {
         list-style: none;
@@ -362,7 +364,7 @@ document.querySelector(".dropdown").addEventListener("click",
         padding: 0;
         /*text-transform: uppercase;*/
     }
-    
+
     .nav,
     .nav__pull,
     .nav__social,
@@ -371,7 +373,7 @@ document.querySelector(".dropdown").addEventListener("click",
         display: -ms-flexbox;
         display: flex;
     }
-    
+
     .nav__columna {
         font-size: 14px;
         width: 50%;
@@ -379,7 +381,7 @@ document.querySelector(".dropdown").addEventListener("click",
         -ms-flex-preferred-size: 50%;
         flex-basis: 50%;
     }
-    
+
     .nav__social,
     .nav__enlaces {
         -webkit-box-align: center;
@@ -389,12 +391,12 @@ document.querySelector(".dropdown").addEventListener("click",
         -ms-flex-pack: center;
         justify-content: center;
     }
-    
+
     .nav__social li+li,
     .nav__enlaces li+li {
         margin-left: 25px;
     }
-    
+
     .nav__social a,
     .nav__social a:visited,
     .nav__enlaces a,
@@ -404,13 +406,13 @@ document.querySelector(".dropdown").addEventListener("click",
         font-family: arial, verdana;
         font-size: 15px;
     }
-    
+
     .nav__enlaces a:hover {
         text-decoration: none;
         font-weight: 900;
         color: #ffffff;
     }
-    
+
     h1,
     h2,
     h3,
@@ -420,7 +422,7 @@ document.querySelector(".dropdown").addEventListener("click",
     .cabecera {
         font-family: 'Montserrat', sans-serif;
     }
-    
+
     .cabecera {
         display: inline-block;
         height: 275px;
@@ -432,13 +434,13 @@ document.querySelector(".dropdown").addEventListener("click",
         width: 100%;
         z-index: 5;
     }
-    
+
     .cabecera--encogida {
         position: fixed;
         top: -225px;
         z-index: 12;
     }
-    
+
     .cabecera h1 {
         font-size: 45px;
         letter-spacing: 0.2em;
@@ -447,13 +449,13 @@ document.querySelector(".dropdown").addEventListener("click",
         text-transform: uppercase;
         color: #ffffff;
     }
-    
+
     .cabecera p {
         /*AQUI HICE CAMBIOS*/
         text-transform: uppercase;
         color: #ffffff;
     }
-    
+
     .cabecera__contenido {
         -webkit-box-align: center;
         -ms-flex-align: center;
@@ -474,14 +476,14 @@ document.querySelector(".dropdown").addEventListener("click",
         width: 100%;
         z-index: 2;
     }
-    
+
     .cabecera,
     .cabecera__fondo--nitido {
         background-position: bottom center;
         background-repeat: no-repeat;
         background-size: cover;
     }
-    
+
     .cabecera__fondo--nitido {
         background-image: url(../../resources/img/img.png);
         height: 275px;
@@ -494,7 +496,7 @@ document.querySelector(".dropdown").addEventListener("click",
         max-width: 150%;
         min-width: 50%;
     }
-    
+
     .cabecera__capa {
         background-color: rgba(0, 0, 0, 0.5);
         /*background-color: rgba(121, 4, 4, 0.5);*/
@@ -510,7 +512,7 @@ document.querySelector(".dropdown").addEventListener("click",
         min-width: 50%;
         /* se cambia de 100% a:*/
     }
-    
+
     .funcion13-logo {
         height: 50px;
         left: 20px;
@@ -520,12 +522,12 @@ document.querySelector(".dropdown").addEventListener("click",
         text-align: center;
         z-index: 15;
     }
-    
+
     .logo {
         height: 100px;
         width: 100px;
     }
-    
+
     .relleno {
         height: 375px;
         position: relative;
@@ -533,7 +535,7 @@ document.querySelector(".dropdown").addEventListener("click",
         width: 100%;
         z-index: -2;
     }
-    
+
     .section1-center {
         -webkit-background-size: cover;
         background-size: cover;
@@ -544,7 +546,7 @@ document.querySelector(".dropdown").addEventListener("click",
         position: relative;
         /*overflow:hidden*/
     }
-    
+
     .pie_pagina {
         background-color: rgba(0, 0, 0, 0.5);
         background-color: rgba(0, 0, 0, 0.5);
@@ -555,6 +557,6 @@ document.querySelector(".dropdown").addEventListener("click",
         width: 100%;
         max-width: 150%;
         z-index: 20;
-    } 
+    }
 </style>
 </html>
