@@ -3,17 +3,18 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Biblioteca EPIS1</title>
+    <title>Biblioteca EPIS</title>
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+        <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
+
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>
-    <link rel="stylesheet" href="{{ asset('storage/css/style.css') }}">
-   
+
+
 
 </head>
 
@@ -23,9 +24,7 @@
         <div class="cabecera__fondo--nitido"></div>
         <div class="cabecera__capa"></div>
         <div class="cabecera__contenido">
-            <img src="" alt="Funcion 13 Logo" class="logo">
-
-            <img height="80px" src="{{ asset('storage' . '/' . 'img/epis.png') }}" alt="">
+            <img height="80px" src="{{ asset('storage' . '/' . 'img/Logo_epis.png') }}" alt="Ingenieria de sistemas">
             <h1>SISTEMA DE BIBLIOTECA</h1>
             <p>Escuela Profesional de Ingenieria de Sistemas</p>
         </div>
@@ -184,6 +183,6 @@
             });
     </script>
 
- 
+
 
     </html>
