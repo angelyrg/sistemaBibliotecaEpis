@@ -308,7 +308,11 @@ return [
         ],
         [
             'text' => 'Libros',
+<<<<<<< HEAD
             'url'  => 'libros',
+=======
+            'url'  => 'admin/settings',
+>>>>>>> ce7cfa5646d991a342ff90a3db51bd484de5b088
             'icon' => 'fas fa-fw fa-book',
         ],
         [

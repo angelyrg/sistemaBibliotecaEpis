@@ -11,7 +11,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
 
 </head>
 <body>
@@ -20,9 +20,11 @@
         <div class="cabecera__fondo--nitido"></div>
         <div class="cabecera__capa"></div>
         <div class="cabecera__contenido">
-            <img src="" alt="Funcion 13 Logo" class="logo">
 
-            <img height="80px" src="{{ asset('storage' . '/' . 'img/epis.png') }}" alt="">
+            <img src="{{ asset('storage/img/logoE.png') }}" alt="Funcion 13 Logo" class="logo">
+
+            {{-- <img height="80px" src="{{ asset('storage/img/logoE.png') }}" alt=""> --}}
+            
             <h1>SISTEMA DE BIBLIOTECA</h1>
             <p>Escuela Profesional de Ingenieria de Sistemas</p>
         </div>
@@ -73,7 +75,7 @@
 
                                     <div class="row mb-3">
                                         <label for="email"
-                                            class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
+                                            class="col-md-4 col-form-label text-md-end">{{ __('Email ') }}</label>
 
                                         <div class="col-md-6">
                                             <input id="email" type="email"
@@ -129,7 +131,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save</button>
+                            {{-- <button type="button" class="btn btn-primary">Save</button> --}}
                         </div>
                     </div>
                 </div>

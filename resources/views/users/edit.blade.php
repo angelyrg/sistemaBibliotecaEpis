@@ -12,7 +12,11 @@
             <form action="{{url('/users/'.$usuarios->id)}}" method="post">
                 @csrf
                 {{method_field('PATCH')}}
+<<<<<<< HEAD
                 @include('users.show')
+=======
+                @include('users.show',['mode'=>'Actualizar'])
+>>>>>>> ce7cfa5646d991a342ff90a3db51bd484de5b088
             </form>
         </div>
     </div>

@@ -7,10 +7,23 @@
 @stop
 
 @section('content')
+<<<<<<< HEAD
 <a href="{{url('users/create')}}" class="btn btn-success my-2"> Registrar nuevo usuario</a>
 <div class="table-responsive">
     <table class="table table-striped table-bordered">
         <thead>
+=======
+<a href="{{url('users/create')}}" class="btn btn-success my-2"> Registrar nuevo usuario <i class="fas fa-plus"></i>  </a>
+<div class="table-responsive">
+    <div class="table-responsive">
+       
+  
+    
+    <table class="table table-striped
+    table-hover	
+    align-middle border">
+        <thead class="bg-secondary">
+>>>>>>> ce7cfa5646d991a342ff90a3db51bd484de5b088
             <tr>
                 <th>Nombre</th>
                 <th>Apellido</th>
@@ -38,7 +51,11 @@
                             </button>
                         </form>
                     </div>
+<<<<<<< HEAD
 
+=======
+                    
+>>>>>>> ce7cfa5646d991a342ff90a3db51bd484de5b088
                 </td>
             </tr>
             @endforeach
