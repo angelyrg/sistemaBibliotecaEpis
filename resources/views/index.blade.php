@@ -20,9 +20,10 @@
         <div class="cabecera__fondo--nitido"></div>
         <div class="cabecera__capa"></div>
         <div class="cabecera__contenido">
-            <img src="" alt="Funcion 13 Logo" class="logo">
+            <img src="{{ asset('storage/img/logoE.png') }}" alt="Funcion 13 Logo" class="logo">
 
-            <img height="80px" src="{{ asset('storage' . '/' . 'img/epis.png') }}" alt="">
+            {{-- <img height="80px" src="{{ asset('storage/img/logoE.png') }}" alt=""> --}}
+            
             <h1>SISTEMA DE BIBLIOTECA</h1>
             <p>Escuela Profesional de Ingenieria de Sistemas</p>
         </div>
