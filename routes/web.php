@@ -22,11 +22,11 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
+Route::resource('users', UsuariosController::class);
+Route::resource('libros', LibrosController::class);
 
 // Route::get('/users/create', [UsuariosController::class,'create']);
 
-Route::resource('users', UsuariosController::class);
-Route::resource('libros', LibrosController::class);
+
 
 
