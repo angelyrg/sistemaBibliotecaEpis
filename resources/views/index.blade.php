@@ -20,10 +20,8 @@
         <div class="cabecera__fondo--nitido"></div>
         <div class="cabecera__capa"></div>
         <div class="cabecera__contenido">
-<<<<<<< HEAD
+
             <img src="{{ asset('storage/img/logoE.png') }}" alt="Funcion 13 Logo" class="logo">
-=======
->>>>>>> 3c58ed743931bff3e9c46ddb8eb1a7dd2d189aef
 
             {{-- <img height="80px" src="{{ asset('storage/img/logoE.png') }}" alt=""> --}}
             
