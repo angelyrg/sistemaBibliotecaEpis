@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\libros;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Storage;
 class LibrosController extends Controller
 {
     /**
@@ -62,10 +62,16 @@ class LibrosController extends Controller
     public function update(Request $request, $id)
     {
         $datosLibro=request()->except(['_token','_method']);
+        if($request->hasFile('imagen')){
+            $libros=Libros::findOrFail($id);
+            Storage::delete('public/'.$libros->imagen);
+            $datosLibro['imagen']=$request->file('imagen')->store('uploads', 'public');
+        }
+
         Libros::where('id','=',$id)->update($datosLibro);
 
         $libros=Libros::findOrFail($id);
-        return view('libros.edit',compact('libross'));
+        return view('libros.edit',compact('libros'));
     }
 
     /**
@@ -73,7 +79,10 @@ class LibrosController extends Controller
      */
     public function destroy($id)
     {
-        Libros::destroy($id);
+        $libros=Libros::findOrFail($id);
+        if(Storage::delete('public/'.$libros->imagen)){
+            Libros::destroy($id);
+        }
         return redirect('libros');
     }
 }

@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('estado');
             $table->string('genero');
             $table->string('formato');
-            $table->text('PDF');
+            $table->text('PDF')->nullable();
             $table->timestamps();
         });
     }

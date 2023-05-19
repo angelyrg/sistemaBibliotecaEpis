@@ -9,10 +9,10 @@
 @section('content')
     <div class="row">
         <div class="col-md-5 mx-auto border py-2">
-            <form action="{{url('/users/'.$libros->id)}}" method="post">
+            <form action="{{url('/libros/'.$libros->id)}}" method="post" enctype="multipart/form-data">
                 @csrf
                 {{method_field('PATCH')}}
-                @include('libros.form')
+                @include('libros.form', ['modo'=>'Actualizar'])
             </form>
         </div>
     </div>

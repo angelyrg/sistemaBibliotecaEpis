@@ -21,7 +21,7 @@
 <div class="form-group">
     <label for="fechaEdicion">Fecha de Edicion:</label>
     <input type="date" class="form-control" value="{{ isset($libros->fecha_edicion) ? $libros->fecha_edicion : '' }}"
-        id="fechaEd" name="fecha_edicion">
+        id="fechaEd" name="fecha_edicion" required>
 </div>
 <div class="form-group">
     <label for="editorial">Editorial:</label>
@@ -41,7 +41,7 @@
 <div class="form-group">
     <label for="fechaEdicion">Fecha de Compra:</label>
     <input type="date" class="form-control" value="{{ isset($libros->fecha_adquisicion) ? $libros->fecha_adquisicion : '' }}"
-        id="fechaC" name="fecha_adquisicion">
+        id="fechaC" name="fecha_adquisicion" required>
 </div>
 <div class="form-group">
     <label for="genero">Genero:</label>
@@ -61,7 +61,7 @@
 <div class="form-group">
     <label for="PDF">PDF:</label>
     <input type="file" class="form-control" value="{{ isset($libros->PDF) ? $libros->PDF : '' }}" id="PDF"
-        name="PDF">
+        name="PDF" accept=".pdf">
 </div>
 <div class="form-group">
     <label for="estado">Estado:</label>
@@ -73,6 +73,5 @@
             Prestado</option>
     </select>
 </div>
-<button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close"
-                                onclick="return confirm('¿Está seguro que desea cancelar el registro de libro?'); false">Cancelar</button>
-<button type="submit" class="btn btn-primary">Registrar Libro</button>
+<a href="{{url('libros/')}}" class="btn btn-dark">Regresar</a>
+<input type="submit" value="{{$modo}} Libro" class="btn btn-primary">

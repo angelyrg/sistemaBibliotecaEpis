@@ -18,6 +18,8 @@
             <table class="w-100 table table-sm table-striped table-bordered" id="libros">
                 <thead class="bg-gradient-info text-center">
                     <tr>
+                        <td>Imagen</td>
+                        <td>Dewey</td>
                         <td>Titulo</td>
                         <td>Autor</td>
                         <td>Editorial</td>
@@ -29,6 +31,10 @@
                 <tbody>
                     @foreach($libros as $lib)
                     <tr>
+                        <td>
+                            <img src="{{ asset('storage').'/'.$lib->imagen }}" alt="" width="100" height="100">
+                        </td>
+                        <td>{{ $lib->dewey }}</td>
                         <td>{{ $lib->titulo }}</td>
                         <td>{{ $lib->autor }}</td>
                         <td>{{ $lib->editorial }}</td>
