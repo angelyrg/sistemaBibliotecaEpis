@@ -72,7 +72,7 @@
                         <h5 class="modal-title text-dark" id="modalTitleId">ADMINISTRADOR</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <img src="{{ asset('storage/img/sistemas.png') }}" alt="Logo Sistemas" class="logo">
+                    <img src="{{ asset('storage/img/sistemas.png') }}"  alt="Logo Sistemas" class="logo">
                     <div class="modal-body">
                         <div class="container py-4">
                             <div class="card-body">
