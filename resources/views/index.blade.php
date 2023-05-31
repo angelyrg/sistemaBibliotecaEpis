@@ -25,7 +25,7 @@
 
             {{-- <img height="80px" src="{{ asset('storage/img/logoE.png') }}" alt=""> --}}
             
-            <h1>SISTEMA DE BIBLIOTECA</h1>
+            <h1>SISTEMA DE BIBLIOTECAs</h1>
             <p>Escuela Profesional de Ingenieria de Sistemas</p>
         </div>
         <!--AQUI TENDREMOS DIFERENTES LISTAS DE MENU DE VENTANA DE INICIO-->

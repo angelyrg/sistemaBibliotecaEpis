@@ -37,9 +37,8 @@
 
     </select>
 </div>
-<<<<<<< HEAD
-<button type="submit" class="btn btn-primary">Registrar usuario</button>
-=======
+
+
 <button type="submit" class="btn btn-primary">{{$mode}} usuario</button>
 <a href="{{url('users/')}}" class="btn btn-secondary ml-auto ">Regresar</a>
->>>>>>> ce7cfa5646d991a342ff90a3db51bd484de5b088
+
