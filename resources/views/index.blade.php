@@ -14,6 +14,7 @@
     <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
 
 </head>
+
 <body>
     <!-- VENTANA DE INICIO GENERAL -->
     <header class="cabecera">
@@ -24,8 +25,8 @@
             <img src="{{ asset('storage/img/logoE.png') }}" alt="Funcion 13 Logo" class="logo">
 
             {{-- <img height="80px" src="{{ asset('storage/img/logoE.png') }}" alt=""> --}}
-            
-            <h1>SISTEMA DE BIBLIOTECAs</h1>
+
+            <h1>SISTEMA DE BIBLIOTECA</h1>
             <p>Escuela Profesional de Ingenieria de Sistemas</p>
         </div>
         <!--AQUI TENDREMOS DIFERENTES LISTAS DE MENU DE VENTANA DE INICIO-->
@@ -44,13 +45,17 @@
                                 d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
                         </svg>
                     </span>
-                    <ul>
-                        <li class="">
+                    <ul style="margin:15px; padding:5px; width:150px; border-radius: 5px;">
+                        {{-- <li class="">
                             <a href="{{ route('login') }}" class="p-4"> Login</a>
-                        </li>
-                        <a type="button" class="btn " data-bs-toggle="modal" data-bs-target="#modalId"
+                        </li> --}}
+                        <a type="button" class="btn " data-bs-toggle="modal" data-bs-target="#admin"
                             style="color: white">
                             Administrador
+                        </a>
+                        <a type="button" class="btn " data-bs-toggle="modal" data-bs-target="#student"
+                            style="color: white">
+                            Estudiante
                         </a>
                     </ul>
                 </li>
@@ -59,28 +64,29 @@
     </header>
 
     <main>
-        <div class="modal fade " id="modalId" tabindex="3" data-bs-backdrop="static" data-bs-keyboard="false"
+        <div class="modal fade " id="admin" tabindex="3" data-bs-backdrop="static" data-bs-keyboard="false"
             role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
             <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered " role="document">
-                <div class="modal-content bg-black">
+                <div class="modal-content bg-white">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="modalTitleId">Login</h5>
+                        <h5 class="modal-title text-dark" id="modalTitleId">ADMINISTRADOR</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
+                    <img src="{{ asset('storage/img/sistemas.png') }}" alt="Logo Sistemas" class="logo">
                     <div class="modal-body">
-                        <div class="container">
+                        <div class="container py-4">
                             <div class="card-body">
                                 <form method="POST" action="{{ route('login') }}">
                                     @csrf
-
                                     <div class="row mb-3">
-                                        <label for="email"
-                                            class="col-md-4 col-form-label text-md-end">{{ __('Email ') }}</label>
 
-                                        <div class="col-md-6">
+
+                                        <div class="col-md-12">
                                             <input id="email" type="email"
                                                 class="form-control @error('email') is-invalid @enderror" name="email"
-                                                value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                                value="{{ old('email') }}" required autocomplete="email" autofocus
+                                                placeholder="Correo Electrónico" title="Ingrese con su correo institucional de la UNH"
+                                                pattern=".+@unh.edu.pe">
 
                                             @error('email')
                                                 <span class="invalid-feedback" role="alert">
@@ -91,13 +97,11 @@
                                     </div>
 
                                     <div class="row mb-3">
-                                        <label for="password"
-                                            class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
-
-                                        <div class="col-md-6">
+                                        <div class="col-md-12">
                                             <input id="password" type="password"
                                                 class="form-control @error('password') is-invalid @enderror"
-                                                name="password" required autocomplete="current-password">
+                                                name="password" required autocomplete="current-password"
+                                                placeholder="Contraseña">
 
                                             @error('password')
                                                 <span class="invalid-feedback" role="alert">
@@ -108,13 +112,13 @@
                                     </div>
 
                                     <div class="row mb-3">
-                                        <div class="col-md-6 offset-md-4">
+                                        <div class="col-md-6 ">
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" name="remember"
                                                     id="remember" {{ old('remember') ? 'checked' : '' }}>
 
-                                                <label class="form-check-label" for="remember">
-                                                    {{ __('Remember Me') }}
+                                                <label class="form-check-label text-dark" for="remember">
+                                                    {{ __('Recuerdame') }}
                                                 </label>
                                             </div>
                                         </div>
@@ -122,20 +126,95 @@
                                     <div class="row mb-0">
                                         <div class="col-md-8 offset-md-4 ">
                                             <button type="submit" class="btn btn-primary">
-                                                {{ __('Login') }}
+                                                {{ __('Iniciar Sesión') }}
                                             </button>
                                         </div>
                                     </div>
                                 </form>
                             </div>
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        {{-- <div class="modal-footer py-0 my-0">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                             {{-- <button type="button" class="btn btn-primary">Save</button> --}}
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>
+
+            <div class="modal fade shadow-lg" id="student" tabindex="3" data-bs-backdrop="static" data-bs-keyboard="false"
+            role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered " role="document">
+                <div class="modal-content shadow-lg bg-white">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-dark" id="modalTitleId">ESTUDIANTE</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <img src="{{ asset('storage/img/sistemas.png') }}" alt="Logo Sistemas" class="logo">
+                    <div class="modal-body">
+                        <div class="container py-4">
+                            <div class="card-body">
+                                <form method="POST" action="{{ route('login') }}">
+                                    @csrf
+                                    <div class="row mb-3">
+                                        <div class="col-md-12">
+                                            <input id="email" type="email"
+                                                class="form-control @error('email') is-invalid @enderror" name="email"
+                                                value="{{ old('email') }}" required autocomplete="email" autofocus
+                                                placeholder="Correo Electrónico" pattern=".+@unh.edu.pe" title="Ingrese con su correo institucional de la UNH">
+
+                                            @error('email')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-3">
+                                        <div class="col-md-12 ">
+                                            <input id="password" type="password"
+                                                class="form-control @error('password') is-invalid @enderror"
+                                                name="password" required autocomplete="current-password"
+                                                placeholder="Contraseña">
+
+                                            @error('password')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-3">
+                                        <div class="col-md-6 ">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" name="remember"
+                                                    id="remember" {{ old('remember') ? 'checked' : '' }}>
+
+                                                <label class="form-check-label text-dark" for="remember">
+                                                    {{ __('Recuerdame') }}
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-0">
+                                        <div class="col-md-8 offset-md-4 ">
+                                            <button type="submit" class="btn btn-primary">
+                                                {{ __('Iniciar Sesión') }}
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        {{-- <div class="modal-footer py-0 my-0">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            {{-- <button type="button" class="btn btn-primary">Save</button> --}}
+                        </div> --}}
+                    </div>
+                </div>
+            </div>
+
     </main>
     <section class="section1-center">
         <br><br><br><br>
