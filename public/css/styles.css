@@ -388,3 +388,7 @@
             max-width: 150%;
             z-index: 20;
         }
+
+        .logos{
+            height: 100%;
+        }
