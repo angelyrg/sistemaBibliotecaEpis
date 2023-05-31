@@ -4,7 +4,7 @@
         name="imagen" accept="image/png, .jpg, .jpeg">
 </div>
 <div class="form-group">
-    <label for="dewey">Numero de Deewey:</label>
+    <label for="dewey">Numero de Deewey DEL LIBRO:</label>
     <input type="text" class="form-control" value="{{ isset($libros->dewey) ? $libros->dewey : '' }}"id="dewey"
         name="dewey" required>
 </div>
