@@ -38,11 +38,6 @@
                             </button>
                         </form>
                     </div>
-<<<<<<< HEAD
-
-=======
-                    
->>>>>>> ce7cfa5646d991a342ff90a3db51bd484de5b088
                 </td>
             </tr>
             @endforeach
