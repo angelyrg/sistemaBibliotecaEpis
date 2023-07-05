@@ -1,4 +1,4 @@
-<div class="form-group">
+ <div class="form-group">
     <label for="nombre">Nombre:</label>
     <input type="text" class="form-control" value="{{ isset($usuarios->nombre) ? $usuarios->nombre : '' }}"id="nombre"
         name="nombre" required>
@@ -40,5 +40,4 @@
 
 
 <button type="submit" class="btn btn-primary">{{$mode}} usuario</button>
-<a href="{{url('users/')}}" class="btn btn-secondary ml-auto ">Regresar</a>
-
+<a href="{{url('users/')}}" class="btn btn-secondary ml-auto ">Regresar</a> 

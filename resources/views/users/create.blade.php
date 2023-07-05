@@ -7,16 +7,18 @@
 @stop
 
 @section('content')
-<div class="row">
-    <div class="col-md-5 mx-auto border py-2">
-        <form method="POST" action="{{ url('/users') }}" enctype="multipart/form-data" class="max-w-lg mx-2 p-2">
-            @csrf
+    <div class="row">
+        <div class="col-md-5 mx-auto border py-2">
+            <form method="POST" action="{{ url('/users') }}" enctype="multipart/form-data" class="max-w-lg mx-2 p-2">
+                @csrf
 
-           @include('users.show',['mode'=>'Registrar'])
+                @include('users.show', ['mode' => 'Registrar'])
 
-        </form>
+            </form>
+        </div>
     </div>
-</div>
+
+
 
 @stop
 
@@ -25,5 +27,7 @@
 @stop
 
 @section('js')
-    <script> console.log('Hi!'); </script>
+    <script>
+        console.log('Hi!');
+    </script>
 @stop
