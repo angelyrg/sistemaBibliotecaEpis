@@ -15,7 +15,7 @@ class UsuariosController extends Controller
     public function index()
     {
         //
-        $datos['usuarios']=Usuarios::paginate(5);
+        $datos['usuarios']=Usuarios::paginate();
         return view('users.index',$datos);
 
     }
@@ -65,7 +65,7 @@ class UsuariosController extends Controller
 
         $usuarios=Usuarios::findOrFail($id);
         return view('users.edit',compact('usuarios'));
-        
+
 
     }
 

@@ -12,7 +12,7 @@ class LibrosController extends Controller
      */
     public function index()
     {
-        $datos['libros']=Libros::paginate(5);
+        $datos['libros']=Libros::paginate();
         return view('libros.index',$datos);
     }
 
