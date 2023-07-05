@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Usuarios;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 class UsuariosController extends Controller
 {
@@ -74,5 +76,23 @@ class UsuariosController extends Controller
     {
         Usuarios::destroy($id);
         return redirect('users');
+    }
+
+    public function showLoginForm()
+    {
+        return view('index');
+    }
+
+    public function login(Request $request)
+    {
+        $credentials = $request->only('correo', 'password');
+
+        if (Auth::attempt($credentials)) {
+            // Autenticación exitosa
+            return redirect()->intended('users');
+        } else {
+            // Autenticación fallida
+            return redirect()->back()->withErrors(['correo' => 'Credenciales inválidas']);
+        }
     }
 }
