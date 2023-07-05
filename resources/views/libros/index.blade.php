@@ -24,6 +24,7 @@
                         <td>Autor</td>
                         <td>Editorial</td>
                         <td>Estado</td>
+                        <td>Stock</td>
                         <td>Formato</td>
                         <th>Acciones</th>
                     </tr>
@@ -39,6 +40,7 @@
                         <td>{{ $lib->autor }}</td>
                         <td>{{ $lib->editorial }}</td>
                         <td>{{ $lib->estado }}</td>
+                        <td>{{ $lib->stock }}</td>
                         <td>{{ $lib->formato }}</td>
                         <td>
                             <div style="display: flex; align-items: center;" >
@@ -72,7 +74,7 @@
     <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap4.min.js"></script>
     <script>
     $('#libros').DataTable({
-        //"scrollY": "250px", // Altura máxima de la tabla
+        //"scrollY": "500px", // Altura máxima de la tabla
         //"scrollCollapse": true,
         //para cambiar el lenguaje a español
         "language": {

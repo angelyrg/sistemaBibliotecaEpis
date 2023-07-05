@@ -4,7 +4,7 @@
         name="imagen" accept="image/png, .jpg, .jpeg">
 </div>
 <div class="form-group">
-    <label for="dewey">Numero de Deewey DEL LIBRO:</label>
+    <label for="dewey">Numero de Deewey:</label>
     <input type="text" class="form-control" value="{{ isset($libros->dewey) ? $libros->dewey : '' }}"id="dewey"
         name="dewey" required>
 </div>
@@ -73,5 +73,9 @@
             Prestado</option>
     </select>
 </div>
+<div class="form-group">
+    <label for="stock">Stock:</label>
+    <input type="number" class="form-control" value="{{ isset($libros->stock) ? $libros->stock : '' }}" id="stock"
+        name="stock" required>
 <a href="{{url('libros/')}}" class="btn btn-dark">Regresar</a>
 <input type="submit" value="{{$modo}} Libro" class="btn btn-primary">
