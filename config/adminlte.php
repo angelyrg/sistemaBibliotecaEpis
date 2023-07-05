@@ -323,7 +323,7 @@ return [
         ],
         [
             'text' => 'Reportes',
-            'url'  => 'admin/settings',
+            'url'  => 'reportes',
             'icon' => 'fas fa-fw fa-chart-line',
         ],
     ],
