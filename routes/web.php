@@ -27,6 +27,12 @@ Route::resource('libros', LibrosController::class);
 
 // Route::get('/users/create', [UsuariosController::class,'create']);
 
+Route::get('/userpage', function () {
+    return view('userpage.page.index', [
+        'header' => view('userpage.includes.header'),
+        'footer' => view('userpage.includes.footer'),
+    ]);
+});
 
 
 
