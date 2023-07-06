@@ -22,7 +22,7 @@
         <div class="cabecera__capa"></div>
         <div class="cabecera__contenido">
 
-            <img src="{{ asset('storage/img/logoE.png') }}" alt="Funcion 13 Logo" class="logo">
+            <img src="{{ asset('storage/img/logoE.png') }}" alt="sistemas" class="logo">
 
             {{-- <img height="80px" src="{{ asset('storage/img/logoE.png') }}" alt=""> --}}
 
