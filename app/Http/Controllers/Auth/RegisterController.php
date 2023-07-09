@@ -29,6 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
+    //  protected $redirectTo = '/register';
     protected $redirectTo = RouteServiceProvider::HOME;
 
     /**
@@ -36,10 +37,14 @@ class RegisterController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('guest');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('guest');
+    // }
+    // public function showRegistrationForm()
+    // {
+    //     return view('auth.register');
+    // }
 
     /**
      * Get a validator for an incoming registration request.
@@ -51,7 +56,7 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
-            'dni' => ['required', 'string', 'digits:8', 'min:8'],
+            'dni' => ['required', 'string', 'digits:8', 'min:8','unique:users'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
@@ -63,14 +68,17 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\Models\User
      */
+    
     protected function create(array $data)
     {
         return User::create([
             'name' => $data['name'],
-            'dni'=>$data['dni'],
+            'dni' => $data['dni'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'type_user' => $data['type_user'],
+            'hide_username' => true,
         ]);
+        
     }
 }

@@ -18,9 +18,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/register', [App\Http\Controllers\HomeController::class, 'showRegistrationForm'])->name('auth.register');
 
-Auth::routes();
+// Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::resource('users', UsuariosController::class);
@@ -35,6 +35,9 @@ Route::get('/userpage', function () {
         'footer' => view('userpage.includes.footer'),
     ]);
 });
+
+// Route::get('/register',[App\Http\Controllers\Auth\RegisterController::class, ''])->name('home');
+
 
 
 

@@ -65,8 +65,6 @@ class UsuariosController extends Controller
 
         $usuarios=User::findOrFail($id);
         return view('users.edit',compact('usuarios'));
-
-
     }
 
     /**
