@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Usuarios;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -15,7 +15,7 @@ class UsuariosController extends Controller
     public function index()
     {
         //
-        $datos['usuarios']=Usuarios::paginate();
+        $datos['usuarios']=User::paginate();
         return view('users.index',$datos);
 
     }
@@ -34,14 +34,14 @@ class UsuariosController extends Controller
     public function store(Request $request)
     {
         $datosUsuario=request()->except('_token');
-        Usuarios::insert($datosUsuario);
+        User::insert($datosUsuario);
         return redirect('users');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Usuarios $usuarios)
+    public function show(User $usuarios)
     {
         //
     }
@@ -51,7 +51,7 @@ class UsuariosController extends Controller
      */
     public function edit($id )
     {
-        $usuarios=Usuarios::findOrFail($id);
+        $usuarios=User::findOrFail($id);
         return view('users.edit',compact('usuarios'));
     }
 
@@ -61,9 +61,9 @@ class UsuariosController extends Controller
     public function update(Request $request, $id)
     {
         $datosUsuario=request()->except(['_token','_method']);
-        Usuarios::where('id','=',$id)->update($datosUsuario);
+        User::where('id','=',$id)->update($datosUsuario);
 
-        $usuarios=Usuarios::findOrFail($id);
+        $usuarios=User::findOrFail($id);
         return view('users.edit',compact('usuarios'));
 
 
@@ -74,7 +74,7 @@ class UsuariosController extends Controller
      */
     public function destroy($id)
     {
-        Usuarios::destroy($id);
+        User::destroy($id);
         return redirect('users');
     }
 

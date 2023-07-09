@@ -192,6 +192,8 @@ a:hover { color:#009999; }
 .tm-hero {
     min-height: 300px;
     background-image: url("../storage/img/img.png");
+    background-size: cover;
+    background-repeat: no-repeat;
     
 }
 

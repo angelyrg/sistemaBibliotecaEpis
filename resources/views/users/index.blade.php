@@ -67,7 +67,7 @@
                 <div class="row">
                     <div class="col-md-2 my-3">
                         
-                        <a href="{{ url('users/create') }}" class="btn btn-block btn-outline-primary "> <i class="fas fa-plus"></i> Registrar usuario<i class="bi bi-person-fill-add"></i></a>
+                        <a href="{{ url('register') }}" class="btn btn-block btn-outline-primary "> <i class="fas fa-plus"></i> Registrar usuario<i class="bi bi-person-fill-add"></i></a>
 
                     </div>
 
@@ -77,8 +77,7 @@
                             id="users">
                             <thead class="bg-gradient-danger text-center">
                                 <tr>
-                                    <th>Nombre</th>
-                                    <th>Apellido</th>
+                                    <th>Apellido y Nombre</th>
                                     <th>DNI</th>
                                     <th>Correo</th>
                                     <th>Tipo de usuario</th>
@@ -88,10 +87,9 @@
                             <tbody>
                                 @foreach ($usuarios as $user)
                                     <tr>
-                                        <td>{{ $user->nombre }}</td>
-                                        <td>{{ $user->apellido }}</td>
+                                        <td>{{ $user->name }}</td>
                                         <td>{{ $user->dni }}</td>
-                                        <td>{{ $user->correo }}</td>
+                                        <td>{{ $user->email }}</td>
                                         <td>{{ $user->type_user }}</td>
                                         <td>
                                             <div style="display: flex; align-items: center;">

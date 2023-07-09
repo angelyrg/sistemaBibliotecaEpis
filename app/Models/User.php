@@ -16,6 +16,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'dni',
+        'type_user',
     ];
 
     protected $hidden = [
@@ -23,7 +25,7 @@ class User extends Authenticatable
         'remember_token',
     ];
 
-    
+
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
