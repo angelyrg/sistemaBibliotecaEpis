@@ -78,7 +78,7 @@
                             <label for="type_user" class="col-md-4 col-form-label text-md-end">{{ __('Tipo de usuario') }}</label>
                         
                             <div class="col-md-6">
-                                <select name="type_user">
+                                <select name="type_user" class="form-control">
                                     <option value="admin">Admin</option>
                                     <option value="user">User</option>
                                 </select>
